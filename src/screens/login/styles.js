@@ -41,6 +41,7 @@ export const LoginButton = styled.TouchableOpacity`
     align-items: center;
     margin-top: 28px;
     overflow: hidden;
+    text-align: center;
 `;
 export const TextButton = styled.Text`
     flex: 1;
@@ -49,7 +50,7 @@ export const TextButton = styled.Text`
     color: #ffffff;
     font-weight: bold;
     font-size: 20px;
-    margin-right: 25px;
+    margin-left: 30px;
 `;
 export const IconButton = styled.View`
     align-items: center;
@@ -60,8 +61,11 @@ export const IconButton = styled.View`
 `;
 export const AccountOptionsContainer = styled.View`
     margin-top: 8px;
+    flex-direction: row;
 `;
-export const AccountOptions = styled.Text`
+
+export const AccountOptions = styled.TouchableOpacity``;
+export const AccountOptionsText = styled.Text`
     color: #243a45;
     font-size: 12px;
     margin-top: 2px;

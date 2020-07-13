@@ -1,5 +1,6 @@
 import React from 'react';
 import { Feather, FontAwesome, EvilIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import {
     Wrapper,
     ImageLogo,
@@ -11,12 +12,18 @@ import {
     IconButton,
     AccountOptionsContainer,
     AccountOptions,
+    AccountOptionsText,
     SocialLoginLabel,
     SocialLoginButtonsContainer,
     SocialLoginButton,
 } from './styles';
 
 const Login = () => {
+    const navigation = useNavigation();
+
+    function handleNavigateToList() {
+        navigation.navigate('List');
+    }
     return (
         <Wrapper>
             <ImageLogo source={require('../../assets/images/Logo.png')} />
@@ -26,15 +33,24 @@ const Login = () => {
                 <Label>Senha</Label>
                 <Input />
             </LoginContainer>
-            <LoginButton>
+            <LoginButton onPress={handleNavigateToList}>
                 <TextButton>Entrar</TextButton>
                 <IconButton>
                     <Feather name="arrow-right" color="#35C442" size={24} />
                 </IconButton>
             </LoginButton>
             <AccountOptionsContainer>
-                <AccountOptions>Ainda não tem conta?</AccountOptions>
-                <AccountOptions>Esqueceu sua senha?</AccountOptions>
+                <AccountOptions>
+                    <AccountOptionsText>
+                        Ainda não tem conta? |
+                    </AccountOptionsText>
+                </AccountOptions>
+                <AccountOptions>
+                    <AccountOptionsText>
+                        {' '}
+                        Esqueceu sua senha?
+                    </AccountOptionsText>
+                </AccountOptions>
             </AccountOptionsContainer>
             <SocialLoginLabel>Entrar com: </SocialLoginLabel>
             <SocialLoginButtonsContainer>
