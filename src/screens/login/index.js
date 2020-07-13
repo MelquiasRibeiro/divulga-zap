@@ -24,6 +24,12 @@ const Login = () => {
     function handleNavigateToList() {
         navigation.navigate('List');
     }
+    function handleNavigateToRegister() {
+        navigation.navigate('Register');
+    }
+    function handleNavigateToForgotPassword() {
+        navigation.navigate('ForgotPassword');
+    }
     return (
         <Wrapper>
             <ImageLogo source={require('../../assets/images/Logo.png')} />
@@ -40,12 +46,12 @@ const Login = () => {
                 </IconButton>
             </LoginButton>
             <AccountOptionsContainer>
-                <AccountOptions>
+                <AccountOptions onPress={handleNavigateToRegister}>
                     <AccountOptionsText>
                         Ainda não tem conta? |
                     </AccountOptionsText>
                 </AccountOptions>
-                <AccountOptions>
+                <AccountOptions onPress={handleNavigateToForgotPassword}>
                     <AccountOptionsText>
                         {' '}
                         Esqueceu sua senha?
