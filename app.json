@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "divulga-zap",
-    "slug": "divulga-zap",
+    "name": "divulgaZap",
+    "slug": "divulgaZap",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,10 +17,12 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.melquias.divulgazap",
+      "buildNumber": "1.0.0"
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "android": {
+      "package": "com.melquias.divulgazap",
+      "versionCode": 1
     }
   }
 }

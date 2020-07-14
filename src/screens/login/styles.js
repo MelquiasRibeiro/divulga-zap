@@ -10,7 +10,7 @@ export const ImageLogo = styled.Image`
 `;
 
 export const LoginContainer = styled.View`
-    margin-top: 80px;
+    margin-top: 120px;
     align-items: flex-start;
 `;
 
@@ -39,7 +39,7 @@ export const LoginButton = styled.TouchableOpacity`
     border-radius: 8px;
     background-color: #314958;
     align-items: center;
-    margin-top: 28px;
+    margin-top: 56px;
     overflow: hidden;
     text-align: center;
 `;
@@ -73,7 +73,7 @@ export const AccountOptionsText = styled.Text`
 
 export const SocialLoginLabel = styled.Text`
     color: #243a45;
-    margin-top: 64px;
+    margin-top: 14px;
 `;
 
 export const SocialLoginButtonsContainer = styled.View`

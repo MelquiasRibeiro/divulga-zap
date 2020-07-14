@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Feather, AntDesign } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+
 import {
     Wrapper,
     ImageLogo,
@@ -29,6 +30,12 @@ const SecondStep = ({ route }) => {
     function handleNavigateToBack() {
         navigation.navigate('Register');
     }
+    function handleNavigateToSucess() {
+        navigation.navigate('Successfully');
+    }
+    function handleNavigateToNext() {
+        navigation.navigate('Register3');
+    }
 
     return (
         <Wrapper>
@@ -49,15 +56,15 @@ const SecondStep = ({ route }) => {
                 <Input />
             </LoginContainer>
             {typeUser ? (
-                <LoginButton>
+                <LoginButton onPress={handleNavigateToNext}>
                     <TextButton>Avançar</TextButton>
                     <IconButton>
                         <Feather name="arrow-right" color="#35C442" size={24} />
                     </IconButton>
                 </LoginButton>
             ) : (
-                <LoginButton>
-                    <TextButton>Cadastrar</TextButton>
+                <LoginButton onPress={handleNavigateToSucess}>
+                    <TextButton>Registrar</TextButton>
                     <IconButton>
                         <AntDesign
                             name="checkcircleo"
