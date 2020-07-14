@@ -1,10 +1,74 @@
-import React from 'react';
-import { View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Feather, AntDesign } from '@expo/vector-icons';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import {
+    Wrapper,
+    ImageLogo,
+    BackButton,
+    BackButtonText,
+    UserData,
+    LoginContainer,
+    Label,
+    Input,
+    LoginButton,
+    TextButton,
+    IconButton,
+} from './styles';
 
-// import { Container } from './styles';
+const SecondStep = ({ route }) => {
+    const [typeUser, setTypeUser] = useState();
 
-const SecondStep = () => {
-    return <View />;
+    const navigation = useNavigation();
+
+    const user = route.params.advertiser;
+
+    useEffect(() => {
+        setTypeUser(user);
+    }, []);
+
+    function handleNavigateToBack() {
+        navigation.navigate('Register');
+    }
+
+    return (
+        <Wrapper>
+            <ImageLogo source={require('../../../assets/images/Logo.png')} />
+            <BackButton onPress={handleNavigateToBack}>
+                <Feather name="arrow-left" color="#35C442" size={24} />
+                <BackButtonText>Voltar</BackButtonText>
+            </BackButton>
+            <UserData>Seus dados: </UserData>
+            <LoginContainer>
+                <Label>Nome</Label>
+                <Input />
+                <Label>Email</Label>
+                <Input />
+                <Label>Senha</Label>
+                <Input />
+                <Label>Confirmação de Senha</Label>
+                <Input />
+            </LoginContainer>
+            {typeUser ? (
+                <LoginButton>
+                    <TextButton>Avançar</TextButton>
+                    <IconButton>
+                        <Feather name="arrow-right" color="#35C442" size={24} />
+                    </IconButton>
+                </LoginButton>
+            ) : (
+                <LoginButton>
+                    <TextButton>Cadastrar</TextButton>
+                    <IconButton>
+                        <AntDesign
+                            name="checkcircleo"
+                            size={24}
+                            color="#35C442"
+                        />
+                    </IconButton>
+                </LoginButton>
+            )}
+        </Wrapper>
+    );
 };
 
 export default SecondStep;

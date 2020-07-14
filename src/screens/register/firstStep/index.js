@@ -15,22 +15,33 @@ import {
 
 const Register = () => {
     const navigation = useNavigation();
-    function handleNavigateToList() {
+    function handleNavigateToLogin() {
         navigation.navigate('Login');
+    }
+    function handleNavigateToSecondStep(typeUser) {
+        navigation.navigate('Register2', { advertiser: typeUser });
     }
     return (
         <Wrapper>
             <ImageLogo source={require('../../../assets/images/Logo.png')} />
-            <BackButton onPress={handleNavigateToList}>
+            <BackButton onPress={handleNavigateToLogin}>
                 <Feather name="arrow-left" color="#35C442" size={24} />
                 <BackButtonText>Voltar</BackButtonText>
             </BackButton>
-            <Instructions>Vamos comerçar! O que você Busca?</Instructions>
+            <Instructions>Vamos começar! O que você Busca?</Instructions>
             <ButtonsContainer>
-                <OptionsBuntton>
+                <OptionsBuntton
+                    onPress={() => {
+                        handleNavigateToSecondStep(true);
+                    }}
+                >
                     <TextButton>Divulgação</TextButton>
                 </OptionsBuntton>
-                <OptionsBuntton>
+                <OptionsBuntton
+                    onPress={() => {
+                        handleNavigateToSecondStep(false);
+                    }}
+                >
                     <TextButton>Serviços</TextButton>
                 </OptionsBuntton>
             </ButtonsContainer>
