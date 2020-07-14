@@ -17,10 +17,10 @@ import {
 } from './styles';
 
 const ForgotPassword = () => {
+    const navigation = useNavigation();
     function handleNavigateToList() {
         navigation.navigate('Login');
     }
-    const navigation = useNavigation();
     return (
         <Wrapper>
             <ImageLogo source={require('../../assets/images/Logo.png')} />
