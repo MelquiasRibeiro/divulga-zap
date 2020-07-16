@@ -1,6 +1,8 @@
 import React from 'react';
 import { MaterialIcons, Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import BackButton from '../../components/backButton';
+
 
 import {
     Wrapper,
@@ -12,8 +14,6 @@ import {
     TextButton,
     IconButton,
     Instructions,
-    BackButton,
-    BackButtonText,
 } from './styles';
 
 const ForgotPassword = () => {
@@ -24,10 +24,7 @@ const ForgotPassword = () => {
     return (
         <Wrapper>
             <ImageLogo source={require('../../assets/images/Logo.png')} />
-            <BackButton onPress={handleNavigateToList}>
-                <Feather name="arrow-left" color="#35C442" size={24} />
-                <BackButtonText>Voltar</BackButtonText>
-            </BackButton>
+            <BackButton />
             <Instructions>
                 Digite seu email de cadastro abaixo para receber mais
                 informaçẽos por email.

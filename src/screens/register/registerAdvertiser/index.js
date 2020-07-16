@@ -2,12 +2,11 @@ import React from 'react';
 import { Feather, AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import MapViwe, { Marker } from 'react-native-maps';
+import BackButton from '../../../components/backButton';
 
 import {
     Wrapper,
     ImageLogo,
-    BackButton,
-    BackButtonText,
     UserData,
     MapContainer,
     RegisterContainer,
@@ -24,9 +23,6 @@ import {
 const RegisterAdvertiser = () => {
     const navigation = useNavigation();
 
-    function handleNavigateToBack() {
-        navigation.navigate('Register2');
-    }
     function handleNavigateToSucess() {
         navigation.navigate('Successfully');
     }
@@ -36,10 +32,7 @@ const RegisterAdvertiser = () => {
                 <ImageLogo
                     source={require('../../../assets/images/Logo.png')}
                 />
-                <BackButton onPress={handleNavigateToBack}>
-                    <Feather name="arrow-left" color="#35C442" size={24} />
-                    <BackButtonText>Voltar</BackButtonText>
-                </BackButton>
+                <BackButton/>                  
                 <UserData>Dados do seu negócio : </UserData>
                 <RegisterContainer>
                     <Label>Localização Da Empresa (opcional)</Label>

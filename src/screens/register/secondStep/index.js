@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Feather, AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import BackButton from '../../../components/backButton';
 
 import {
     Wrapper,
     ImageLogo,
-    BackButton,
-    BackButtonText,
     UserData,
     LoginContainer,
     Label,
@@ -27,9 +26,6 @@ const SecondStep = ({ route }) => {
         setTypeUser(user);
     }, []);
 
-    function handleNavigateToBack() {
-        navigation.navigate('Register');
-    }
     function handleNavigateToSucess() {
         navigation.navigate('Successfully');
     }
@@ -40,10 +36,7 @@ const SecondStep = ({ route }) => {
     return (
         <Wrapper>
             <ImageLogo source={require('../../../assets/images/Logo.png')} />
-            <BackButton onPress={handleNavigateToBack}>
-                <Feather name="arrow-left" color="#35C442" size={24} />
-                <BackButtonText>Voltar</BackButtonText>
-            </BackButton>
+            <BackButton/>
             <UserData>Seus dados: </UserData>
             <LoginContainer>
                 <Label>Nome</Label>

@@ -8,19 +8,6 @@ export const Wrapper = styled.SafeAreaView`
 export const ImageLogo = styled.Image`
     margin-top: 52px;
 `;
-
-export const BackButton = styled.TouchableOpacity`
-    flex-direction: row;
-    align-self: flex-start;
-    margin: 24px 0 0 16px;
-`;
-
-export const BackButtonText = styled.Text`
-    font-size: 20px;
-    line-height: 23px;
-    color: #243a49;
-`;
-
 export const Instructions = styled.Text`
     font-weight: bold;
     font-size: 32px;

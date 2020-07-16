@@ -9,19 +9,6 @@ export const ImageLogo = styled.Image`
     margin-top: 52px;
 `;
 
-export const BackButton = styled.TouchableOpacity`
-    flex-direction: row;
-    align-self: flex-start;
-    margin-left: 16px;
-    margin-top: 24px;
-`;
-
-export const BackButtonText = styled.Text`
-    font-size: 20px;
-    line-height: 23px;
-    color: #243a49;
-`;
-
 export const Instructions = styled.Text`
     margin-top: 48px;
     font-weight: bold;

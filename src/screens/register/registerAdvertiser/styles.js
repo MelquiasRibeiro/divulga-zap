@@ -10,16 +10,6 @@ export const ImageLogo = styled.Image`
     align-self: center;
 `;
 
-export const BackButton = styled.TouchableOpacity`
-    flex-direction: row;
-    margin: 24px 0 0 16px;
-`;
-
-export const BackButtonText = styled.Text`
-    font-size: 20px;
-    line-height: 23px;
-    color: #243a49;
-`;
 export const Container = styled.ScrollView.attrs({
     showsVerticalScrollIndicator: false,
 })``;

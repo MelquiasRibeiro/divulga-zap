@@ -1,6 +1,7 @@
 import React from 'react';
 import { Feather, AntDesign } from '@expo/vector-icons';
 import Advertisement from '../../components/advertisement/index';
+import { useNavigation } from '@react-navigation/native';
 
 import {
     Wrapper,
@@ -12,9 +13,15 @@ import {
     ContainerButtonMenuHeaderBar,
     ContainerButtonSearcHeaderBar,
     AdvertisementContainer,
+    DetailsButton,
 } from './styles';
 
 const List = () => {
+    const navigation = useNavigation();
+
+    function handleNavigateToDetails() {
+        navigation.navigate('Details');
+    }
     return (
         <Wrapper>
             <HeaderBar>
@@ -41,12 +48,24 @@ const List = () => {
                 </Option>
             </Menu>
             <AdvertisementContainer>
+               <DetailsButton onPress ={handleNavigateToDetails}> 
                 <Advertisement />
+               </DetailsButton> 
+               <DetailsButton> 
                 <Advertisement />
+               </DetailsButton> 
+               <DetailsButton> 
                 <Advertisement />
+               </DetailsButton> 
+               <DetailsButton> 
                 <Advertisement />
+               </DetailsButton> 
+               <DetailsButton> 
                 <Advertisement />
+               </DetailsButton> 
+               <DetailsButton> 
                 <Advertisement />
+               </DetailsButton> 
             </AdvertisementContainer>
         </Wrapper>
     );

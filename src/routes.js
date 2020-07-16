@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Login from './screens/login';
 import Register from './screens/register/firstStep';
 import List from './screens/list';
+import Details from './screens/details';
 import ForgotPassword from './screens/forgotPassword';
 import SecondStep from './screens/register/secondStep';
 import RegisterAdvertiser from './screens/register/registerAdvertiser';
@@ -30,12 +31,13 @@ const Routes = () => {
                     name="Register3"
                     component={RegisterAdvertiser}
                 />
-                <Appstack.Screen name="Successfully" component={Successfully} />
-                <Appstack.Screen name="List" component={List} />
                 <Appstack.Screen
                     name="ForgotPassword"
                     component={ForgotPassword}
                 />
+                <Appstack.Screen name="Successfully" component={Successfully} />
+                <Appstack.Screen name="List" component={List} />
+                <Appstack.Screen name="Details" component={Details}/>
             </Appstack.Navigator>
         </NavigationContainer>
     );

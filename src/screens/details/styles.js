@@ -8,7 +8,6 @@ export const HeaderBar = styled.View`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background: #243a45;
     height: 80px;
 `;
 
