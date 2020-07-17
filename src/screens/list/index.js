@@ -1,5 +1,5 @@
 import React from 'react';
-import { Feather, AntDesign } from '@expo/vector-icons';
+import { FontAwesome, AntDesign } from '@expo/vector-icons';
 import Advertisement from '../../components/advertisement/index';
 import { useNavigation } from '@react-navigation/native';
 
@@ -27,7 +27,7 @@ const List = () => {
             <HeaderBar>
                 <ContainerButtonMenuHeaderBar>
                     <ButtonHeaderBar>
-                        <Feather name="menu" size={24} color="#fafafafa" />
+                    <FontAwesome name="gear" size={24} color="#FAFAFAFA" />
                     </ButtonHeaderBar>
                 </ContainerButtonMenuHeaderBar>
                 <ContainerButtonSearcHeaderBar>
