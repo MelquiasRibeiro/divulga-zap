@@ -43,15 +43,6 @@ const Details = () => {
             <Container>
                 <Name>Jorge Encanador</Name>
                 <ProfilePicture source={require('../../assets/images/encanador.png')}/>
-                <DescriptionContainer>
-                    <Description>
-                    Pronto para resolver  quaisquer probelmas  no seu cano,
-                    sou encanador com mais de 20 anos de experiencia ,
-                    hoje dono de uma empresa que preza pela satisfação do 
-                    cliente atraves da realização de um trabalho de qualidade
-                    e que permita a  feliciaded do cliente
-                    </Description>
-                </DescriptionContainer>
                 <EvaluationContainer>
                     <EvaluationTitle>Avaliação</EvaluationTitle>
                     <StarRating
@@ -62,8 +53,18 @@ const Details = () => {
                             fullStarColor={'#35C442'}
                             emptyStarColor={'#35C442'}
                             starSize ={32}	
+
                     />
                 </EvaluationContainer>
+                <DescriptionContainer>
+                    <Description>
+                    Pronto para resolver  quaisquer probelmas  no seu cano,
+                    sou encanador com mais de 20 anos de experiencia ,
+                    hoje dono de uma empresa que preza pela satisfação do 
+                    cliente atraves da realização de um trabalho de qualidade
+                    e que permita a  feliciaded do cliente
+                    </Description>
+                </DescriptionContainer>
                     <ContactTitle>Contatos:</ContactTitle>
                     <ContactButtonsContainer>
                         <ContactButton>

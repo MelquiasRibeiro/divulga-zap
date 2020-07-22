@@ -61,7 +61,7 @@ export const EvaluationContainer = styled.View`
     align-self:center;
     width:193px;
     border: 1px solid #35C442;
-    margin: 16px 0 0 0;
+    margin: 0 0 0 0;
     border-radius:16px;
     padding: 8px;
     align-items:center;

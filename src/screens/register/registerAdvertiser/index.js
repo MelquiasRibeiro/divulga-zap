@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import { Feather, AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import MapViwe, { Marker } from 'react-native-maps';
@@ -21,6 +21,15 @@ import {
 } from './styles';
 
 const RegisterAdvertiser = () => {
+    const [latitude,setLatitude] = useState(0);
+    const [logitude,setLogitude] = useState(0);
+    const [companyName, setCompanyName] = useState('');
+    const [wathsApp, setWathsApp] = useState('');
+    const [description, setDescription] =useState('');
+    const [image, setImage] = useState();
+
+
+
     const navigation = useNavigation();
 
     function handleNavigateToSucess() {
@@ -51,11 +60,19 @@ const RegisterAdvertiser = () => {
                         />
                     </MapContainer>
                     <Label>Nome Da Empresa</Label>
-                    <Input />
+                    <Input onChangeText={(name) =>
+                            setName(name)
+                        }/>
                     <Label>WathsApp</Label>
-                    <Input />
+                    <Input onChangeText={(whatsApp) =>
+                            setWhatsApp(whatsApp)
+                        }/>
                     <Label>Descreva seu negócio</Label>
-                    <TextAreaDescription multiline numberOfLines={4} />
+                    <TextAreaDescription 
+                            multiline numberOfLines={4} 
+                            onChangeText={(description) =>
+                            setDescription(description)
+                        }/>
                     <Label>Escolha uma imagem para seu negocio</Label>
                     <ImageButton>
                         <Feather name="camera" size={36} color="#35C442" />

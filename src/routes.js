@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import * as firebase from 'firebase';
 
 import Login from './screens/login';
 import Register from './screens/register/firstStep';
@@ -10,8 +11,14 @@ import ForgotPassword from './screens/forgotPassword';
 import SecondStep from './screens/register/secondStep';
 import RegisterAdvertiser from './screens/register/registerAdvertiser';
 import Successfully from './screens/register/registersuccessfully';
-
+import {firebaseConfig} from './services/firebase'
 const Appstack = createStackNavigator();
+
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+
 
 const Routes = () => {
     return (

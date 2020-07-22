@@ -10,7 +10,7 @@ export const ImageLogo = styled.Image`
 `;
 
 export const LoginContainer = styled.View`
-    margin-top: 120px;
+    margin-top: 100px;
     align-items: flex-start;
 `;
 
@@ -39,9 +39,10 @@ export const LoginButton = styled.TouchableOpacity`
     border-radius: 8px;
     background-color: #314958;
     align-items: center;
-    margin-top: 56px;
+    margin-top: 32px;
     overflow: hidden;
     text-align: center;
+    opacity: ${(props) => (props.loading ? 0.7 : 1)};
 `;
 export const TextButton = styled.Text`
     flex: 1;
@@ -59,6 +60,20 @@ export const IconButton = styled.View`
     width: 53px;
     background-color: #243a49;
 `;
+export const ErrorMessageContainer = styled.View`
+    height:40px;
+    width:250px;
+    background-color: #F14336B0;
+    margin: 16px 0 0 0;
+    justify-content:center;
+`;
+
+export const ErrorMessage = styled.Text`
+      color: #243a45;
+      font-size: 14px;
+      font-weight:bold;
+      text-align:center
+`;
 export const AccountOptionsContainer = styled.View`
     margin-top: 16px;
     flex-direction: row;
@@ -68,16 +83,15 @@ export const AccountOptions = styled.TouchableOpacity``;
 export const AccountOptionsText = styled.Text`
     color: #243a45;
     font-size: 12px;
-    margin-top: 2px;
 `;
 
 export const SocialLoginLabel = styled.Text`
     color: #243a45;
-    margin-top: 14px;
+    margin-top: 16px;
 `;
 
 export const SocialLoginButtonsContainer = styled.View`
-    margin-top: 8px;
+    margin-top: 16px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;

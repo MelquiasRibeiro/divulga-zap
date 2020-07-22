@@ -17,6 +17,11 @@ import {
 
 const SecondStep = ({ route }) => {
     const [typeUser, setTypeUser] = useState();
+    const [name, setName] = useState('');
+    const [email, setEmail] =useState('');
+    const [password,setPassword] = useState('');
+    const [passwordConfirmation, setPasswordConfirmation] = useState('');
+    const [passWordEqual, setPasswordEqual] = useState(true);
 
     const navigation = useNavigation();
 
@@ -25,6 +30,16 @@ const SecondStep = ({ route }) => {
     useEffect(() => {
         setTypeUser(user);
     }, []);
+
+    useEffect(()=>{
+        comparePassword();
+    },[passwordConfirmation,password]);
+
+    function comparePassword(){
+        if(password !== passwordConfirmation){
+            setPasswordEqual(false)
+        }
+    }
 
     function handleNavigateToSucess() {
         navigation.navigate('Successfully');
@@ -40,13 +55,21 @@ const SecondStep = ({ route }) => {
             <UserData>Seus dados: </UserData>
             <LoginContainer>
                 <Label>Nome</Label>
-                <Input />
+                <Input onChangeText={(name) =>
+                       setName(name)
+                        } />
                 <Label>Email</Label>
-                <Input />
+                <Input onChangeText={(email) =>
+                       setEmail(email)
+                        }/>
                 <Label>Senha</Label>
-                <Input />
+                <Input onChangeText={(password) =>
+                            setPassword(password)
+                        }/>
                 <Label>Confirmação de Senha</Label>
-                <Input />
+                <Input onChangeText={(passwordConfirmation) =>
+                            setPasswordConfirmation(passwordConfirmation)
+                        } />
             </LoginContainer>
             {typeUser ? (
                 <LoginButton onPress={handleNavigateToNext}>
