@@ -18,4 +18,5 @@
 + Roteamento web com [React Router Dom](https://www.npmjs.com/package/react-router-dom)
 + Roteamento com Stack Navigation do [React Navigator](https://reactnavigation.org/docs/stack-navigator/);
 + Renderização Condicional;
-+ Conexão com whatsApp.
++ Conexão com whatsApp;
++ integração com o [firebase](https://firebase.google.com/).
