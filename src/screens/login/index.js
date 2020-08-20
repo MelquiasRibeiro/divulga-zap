@@ -1,9 +1,8 @@
-import React,{useEffect, useState} from 'react';
+import React,{ useState} from 'react';
 import { Feather, FontAwesome, EvilIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import {ActivityIndicator, Text} from "react-native";
-import "firebase/firestore";
-import firebase from "firebase";
+import {ActivityIndicator} from "react-native";
+import firebase from 'firebase';
 
 import {
     Wrapper,
@@ -35,11 +34,14 @@ const Login = () => {
     async function handleLogin() {
       setError(false)
       setLoading(true)
+      console.log(email)
+      console.log(password)
       await firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(handleNavigateToList)
       .catch(error => {
+        console.log(error)
         setLoading(false)
         setError(true)
       });
