@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Feather, AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import BackButton from '../../../components/backButton';
+import {ActivityIndicator} from "react-native";
+import firebase from 'firebase';
 
 import {
     Wrapper,
@@ -14,21 +16,25 @@ import {
     TextButton,
     IconButton,
 } from './styles';
+import { set } from 'react-native-reanimated';
 
 const SecondStep = ({ route }) => {
-    const [typeUser, setTypeUser] = useState();
+    const [isAdvertiser, setIsAdvertiser] = useState();
+    const [loading, setLoading]=useState(false);
+    const [diferent, setDiferent]=useState(false);
     const [name, setName] = useState('');
     const [email, setEmail] =useState('');
     const [password,setPassword] = useState('');
     const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const [passWordEqual, setPasswordEqual] = useState(true);
+    const [userId, setUserId]= useState('')
 
     const navigation = useNavigation();
 
     const user = route.params.advertiser;
 
     useEffect(() => {
-        setTypeUser(user);
+        setIsAdvertiser(user);
     }, []);
 
     useEffect(()=>{
@@ -41,11 +47,38 @@ const SecondStep = ({ route }) => {
         }
     }
 
+    async function RegisterUserData() {
+        setLoading(true); 
+        await firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then( function(result) {
+            setUserId(result.user.uid);
+            console.log(userId)
+            firebase.database().ref(`users/ + ${userId}`).set({
+            username: name,
+            email: email,
+            isAdvertiser : isAdvertiser,
+            }).then(function(result){
+                setLoading(false)
+            }).catch(function(err){
+                console.log(err)
+                setLoading(false)
+            })
+        })
+        .catch(function(error) {
+                setLoading(false)
+                console.log(error)
+        });
+
+    }
+
     function handleNavigateToSucess() {
-        navigation.navigate('Successfully');
+        RegisterUserData()
+        setUserId('')
+        navigation.navigate('Successfully',{userId});
     }
     function handleNavigateToNext() {
-        navigation.navigate('Register3');
+        RegisterUserData()
+        navigation.navigate('Register3',{userId});
     }
 
     return (
@@ -71,22 +104,35 @@ const SecondStep = ({ route }) => {
                             setPasswordConfirmation(passwordConfirmation)
                         } />
             </LoginContainer>
-            {typeUser ? (
+            {isAdvertiser ? (
                 <LoginButton onPress={handleNavigateToNext}>
                     <TextButton>Avançar</TextButton>
                     <IconButton>
-                        <Feather name="arrow-right" color="#35C442" size={24} />
+                    { loading? 
+                       <ActivityIndicator 
+                            size={24} 
+                            color="#35C442"/>
+                        :<Feather 
+                            name="arrow-right" 
+                            color="#35C442" 
+                            size={24} />
+                    }
                     </IconButton>
                 </LoginButton>
             ) : (
                 <LoginButton onPress={handleNavigateToSucess}>
                     <TextButton>Registrar</TextButton>
                     <IconButton>
-                        <AntDesign
+                       { loading? 
+                       <ActivityIndicator 
+                            size={24} 
+                            color="#35C442"/>
+                        :<AntDesign
                             name="checkcircleo"
                             size={24}
                             color="#35C442"
-                        />
+                        />}
+                        
                     </IconButton>
                 </LoginButton>
             )}
